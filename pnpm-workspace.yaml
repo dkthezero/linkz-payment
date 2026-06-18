@@ -1,0 +1,15 @@
+packages:
+  - 'api'
+  - 'e2e'
+  - 'libs/*'
+allowBuilds:
+  unrs-resolver: true
+  nx: true
+  '@parcel/watcher': true
+  less: true
+  esbuild: true
+  browser-tabs-lock: false
+  bufferutil: false
+  core-js: false
+  utf-8-validate: false
+  '@swc/core': true

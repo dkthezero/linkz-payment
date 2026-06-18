@@ -1,0 +1,19 @@
+{
+  "name": "web",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "web/src",
+  "tags": ["scope:web", "type:app"],
+  "targets": {
+    "test": {
+      "executor": "@nx/vitest:test",
+      "outputs": ["{workspaceRoot}/coverage/web"],
+      "options": { "configFile": "web/vite.config.ts", "passWithNoTests": true }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": { "lintFilePatterns": ["web/**/*.{ts,tsx}"] }
+    }
+  }
+}

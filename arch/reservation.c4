@@ -1,0 +1,145 @@
+// Reservation module — saga orchestration (hexagonal / clean architecture)
+// + the seat-reservation status state machine.
+// Attached to the `api` backend (defined in model.c4) via `extend`.
+
+model {
+    extend api {
+        reservations = component 'Reservations Module' {
+            description 'Saga orchestrator: hold -> pay -> invoice -> ticket with compensations. Hexagonal / clean architecture.'
+
+            resController = component 'HTTP Controller' {
+                #infrastructure
+                description 'Inbound adapter: REST endpoints for hold / confirm / cancel.'
+            }
+            resSaga = component 'Reservation Saga' {
+                #application
+                description 'Use-case orchestrator. Drives saga steps + compensations; persists saga state.'
+
+                holdSeat = step 'Hold seat'
+                createPayment = step 'Create payment'
+                issueInvoice = step 'Issue invoice' {
+                    description 'Forward-recovery: retry until success (payment already captured).'
+                }
+                issueTicket = step 'Issue ticket' {
+                    description 'Forward-recovery: retry until success.'
+                }
+                confirmed = step 'Confirmed' {
+                    style { color green }
+                }
+                releaseSeat = step 'Release seat' {
+                    description 'Compensation: release the held seat.'
+                    style { color amber }
+                }
+                failed = step 'Failed' {
+                    style { color red }
+                }
+
+                confirmReservation = step 'Confirm reservation' {
+                    style { color green }
+                }
+
+                // success path (forward)
+                holdSeat -[success]-> createPayment 'seat held'
+                createPayment -[success]-> confirmReservation 'payment.succeeded'
+                confirmReservation -[success]-> issueInvoice 'confirmed'
+                issueInvoice -[success]-> issueTicket 'invoiced'
+                issueTicket -[success]-> confirmed 'ticketed'
+
+                refundPayment = step 'Refund payment' {
+                    description 'Compensation: issue Stripe refund when payment was captured but seat can no longer be confirmed (re-sold after hold expired).'
+                    style { color red }
+                }
+                refunded = step 'Refunded' {
+                    style { color red }
+                }
+
+                // compensation path (reverse)
+                holdSeat -[compensate]-> failed 'seat unavailable'
+                createPayment -[compensate]-> releaseSeat 'payment failed / timeout'
+                releaseSeat -[compensate]-> failed 'seat released'
+                createPayment -[compensate]-> refundPayment 'payment captured, seat re-sold after hold expired'
+                refundPayment -[compensate]-> refunded 'refund issued'
+            }
+            resDomain = component 'Reservation Domain' {
+                #domain
+                description 'Reservation aggregate + status state machine + invariants. Pure, no I/O.'
+
+                available = state 'Available'
+                held = state 'Held' {
+                    style { color amber }
+                }
+                rconfirmed = state 'Confirmed' {
+                    style { color green }
+                }
+                released = state 'Released' {
+                    style { color muted }
+                }
+                expired = state 'Expired' {
+                    style { color muted }
+                }
+
+                refunded = state 'Refunded' {
+                    description 'Payment was captured but seat could not be confirmed (re-sold after hold expired). Stripe refund issued.'
+                    style { color red }
+                }
+
+                available -[success]-> held 'user selects (atomic hold)'
+                held -[success]-> rconfirmed 'payment succeeded'
+                held -[compensate]-> released 'user cancels'
+                held -[compensate]-> expired 'hold TTL elapsed'
+                released -> available 'seat freed'
+                expired -> available 'seat freed'
+                expired -[compensate]-> refunded 'payment captured, seat re-sold — Stripe refund issued'
+            }
+            resRepo = component 'Reservation Repository' {
+                #infrastructure
+                description 'Outbound adapter: Drizzle persistence (ports & adapters).'
+            }
+
+            resController -> resSaga 'Invoke use-case'
+            resSaga -> resDomain 'Apply state machine'
+            resSaga -> resRepo 'Load / save (port)'
+        }
+    }
+
+    // --- Saga orchestration + persistence (cross-module, full FQN) ---
+    api.reservations.resSaga -> api.seats 'Hold / release seat'
+    api.reservations.resSaga -> api.invoices 'Issue invoice'
+    api.reservations.resSaga -> api.tickets 'Issue ticket'
+    api.reservations.resRepo -> db 'Saga state (tx)' {
+        technology 'SQL'
+    }
+}
+
+views {
+    dynamic view reservationFlow {
+        title 'Reservation — main workflow'
+
+        customer -> webapp 'Pick a seat'
+        webapp -> api 'POST /reservations'
+        api.reservations.resSaga -> api.seats 'Hold seat (atomic)'
+        webapp -> api 'POST /payments'
+        api.payments -> psp 'Create checkout session'
+        customer -> psp 'Pay (hosted checkout)'
+        psp -> api.payments 'Webhook: payment.succeeded'
+        api.payments -> api.reservations.resSaga 'Advance saga'
+        webapp <- api 'Reservation confirmed + e-ticket'
+    }
+
+    view sagaFlow {
+        title 'Reservation Saga — cross-module communication'
+        include api.reservations.resSaga
+        include api.reservations.resRepo
+        include api.payments
+        include api.seats
+        include api.invoices
+        include api.tickets
+        autoLayout LeftRight
+    }
+
+    view seatStates of api.reservations.resDomain {
+        title 'Seat Reservation — status state machine'
+        include *
+        autoLayout LeftRight
+    }
+}

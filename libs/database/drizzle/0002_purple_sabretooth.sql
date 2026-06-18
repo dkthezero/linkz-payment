@@ -1,0 +1,7 @@
+ALTER TABLE "seats" ADD COLUMN "price" integer DEFAULT 5000 NOT NULL;
+--> statement-breakpoint
+INSERT INTO "seats" ("id", "label", "price") VALUES
+  ('550e8400-e29b-41d4-a716-446655440010', 'A1', 12000),
+  ('550e8400-e29b-41d4-a716-446655440011', 'A2', 9500),
+  ('550e8400-e29b-41d4-a716-446655440012', 'A3', 8000)
+ON CONFLICT DO NOTHING;

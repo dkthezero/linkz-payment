@@ -1,0 +1,18 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: linkz
+      POSTGRES_PASSWORD: linkz
+      POSTGRES_DB: linkz
+    ports:
+      - "18602:5432"
+    volumes:
+      - linkz_pg:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "linkz", "-d", "linkz"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+volumes:
+  linkz_pg:

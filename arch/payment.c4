@@ -1,0 +1,69 @@
+// Payment module — payment status state machine + provider / webhook integration.
+// Attached to the `api` backend (defined in model.c4) via `extend`.
+
+model {
+    extend api {
+        payments = component 'Payments Module' {
+            description 'Creates payment intents; verifies and idempotently processes provider webhooks.'
+
+            payDomain = component 'Payment Domain' {
+                #domain
+
+                pending = state 'Pending'
+                succeeded = state 'Succeeded' {
+                    style { color green }
+                }
+                pfailed = state 'Failed' {
+                    style { color red }
+                }
+                refunded = state 'Refunded' {
+                    style { color amber }
+                }
+
+                pending -[success]-> succeeded 'webhook push or client-triggered pull verify'
+                pending -[compensate]-> pfailed 'failed / timeout'
+                succeeded -[compensate]-> refunded 'refund (seat re-sold after hold expired)'
+            }
+        }
+    }
+
+    // --- Cross-module + provider + persistence (full FQN) ---
+    api.payments -> api.reservations.resSaga 'payment.succeeded -> advance saga'
+    api.payments -> db 'Payments + webhook ledger'
+    api.payments -> psp 'Create payment intent / pull session status' {
+        technology 'HTTPS'
+    }
+    psp -> api.payments 'Webhook: payment.succeeded (push)' {
+        technology 'HTTPS, signed'
+    }
+}
+
+views {
+    dynamic view paymentFlow {
+        title 'Payment — main workflow'
+
+        api.reservations.resSaga -> api.payments 'Create payment'
+        api.payments -> psp 'Create intent (idempotency key)'
+        customer -> psp 'Completes payment (hosted checkout)'
+        psp -> api.payments 'Webhook: payment.succeeded (signed)'
+        api.payments -> db 'Verify + dedupe (event ledger); mark succeeded'
+        psp <- api.payments '200 OK (ack)'
+        api.payments -> api.reservations.resSaga 'Advance saga'
+    }
+
+    view paymentStates of api.payments.payDomain {
+        title 'Payment — status state machine'
+        include *
+        autoLayout LeftRight
+    }
+
+    dynamic view verifyFlow {
+        title 'Payment — pull-based verify fallback (after 15 polling attempts)'
+
+        webapp -> api 'POST /payments/verify (after 15 silent polls)'
+        api.payments -> psp 'GET /v1/checkout/sessions/:id (pull)'
+        psp -> api.payments 'session.payment_status = paid'
+        api.payments -> db 'settle(): ledger insert + payment update (idempotent)'
+        api.payments -> api.reservations.resSaga 'Advance saga (same path as webhook)'
+    }
+}

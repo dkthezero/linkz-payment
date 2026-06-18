@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LinkZ — Checkout</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page">
+    <header>
+      <a href="index.html" class="logo">
+        <span class="logo-mark">L</span>
+        <span>LinkZ</span>
+      </a>
+      <div class="user-chip">
+        <span>alex.chen@example.com</span>
+        <div class="avatar">AC</div>
+      </div>
+    </header>
+
+    <main style="max-width: 640px;">
+      <h1 class="page-title">Review your reservation</h1>
+      <p class="page-subtitle">Confirm the details before we redirect you to the payment provider.</p>
+
+      <div class="card" style="margin-bottom: 1.5rem;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+          <div>
+            <h2 style="margin: 0 0 0.25rem; font-size: 1.125rem;">Seats A4, A2</h2>
+            <p style="margin: 0; color: var(--gray-500); font-size: 0.875rem;">A4 — Front row, center • A2 — Front row, left</p>
+          </div>
+          <span class="badge badge-green" title="Time left until your hold expires">Held · 03:00</span>
+        </div>
+
+        <div class="summary-row">
+          <span>Seat price</span>
+          <strong>$240.00</strong>
+        </div>
+        <div class="summary-row">
+          <span>Service fee</span>
+          <strong>$4.00</strong>
+        </div>
+        <div class="summary-row">
+          <span>Total due</span>
+          <span style="color: var(--brand-600);">$244.00</span>
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.875rem; color: var(--gray-500);">
+          Complete payment before the time runs out to keep your seats.
+        </p>
+      </div>
+
+      <div class="card" style="margin-bottom: 1.5rem;">
+        <h2 style="margin-top: 0; font-size: 1.125rem;">Contact</h2>
+        <div class="summary-row">
+          <span>Email</span>
+          <strong>alex.chen@example.com</strong>
+        </div>
+        <div class="summary-row" style="border-bottom: none;">
+          <span>Payment method</span>
+          <strong>Hosted checkout</strong>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+        <a href="seat-map.html" class="btn btn-secondary">← Change seats</a>
+        <a href="payment.html" class="btn btn-primary" style="flex: 1; min-width: 180px;">
+          Pay $244.00
+        </a>
+      </div>
+    </main>
+
+    <footer>LinkZ — Seat Reservation Platform</footer>
+  </div>
+</body>
+</html>

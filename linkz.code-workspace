@@ -1,0 +1,33 @@
+{
+  "folders": [
+    {
+      "path": ".",
+      "name": "Linkz"
+    }
+  ],
+  "settings": {
+    "files.exclude": {
+      "node_modules": true,
+      "dist": true,
+      "coverage": true,
+      "tmp": true
+    },
+    "search.exclude": {
+      "**/node_modules": true,
+      "**/dist": true,
+      "pnpm-lock.yaml": true
+    },
+    "typescript.preferences.includePackageJsonAutoImports": "on",
+    "nxConsole.nxWorkspacePath": "."
+  },
+  "extensions": {
+    "recommendations": [
+      "likec4.likec4-vscode",
+      "dineug.vuerd-vscode",
+      "nrwl.angular-console",
+      "ms-azuretools.vscode-docker",
+      "dbaeumer.vscode-eslint",
+      "ms-playwright.playwright"
+    ]
+  }
+}

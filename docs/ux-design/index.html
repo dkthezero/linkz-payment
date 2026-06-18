@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LinkZ — UX Prototype Hub</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page">
+    <header>
+      <a href="index.html" class="logo">
+        <span class="logo-mark">L</span>
+        <span>LinkZ</span>
+      </a>
+    </header>
+
+    <main>
+      <div class="card" style="max-width: 720px; margin: 2rem auto;">
+        <h1 class="page-title">UX Prototype Hub</h1>
+        <p class="page-subtitle">
+          Static HTML prototypes for the customer journey mapped in <code>arch/model.c4</code> <em>ux</em> view.
+        </p>
+
+        <ol style="padding-left: 1.25rem; color: var(--gray-700);">
+          <li style="margin-bottom: 0.5rem;">
+            <strong>Pick a seat</strong> — browse the seat map and select an available seat.
+          </li>
+          <li style="margin-bottom: 0.5rem;">
+            <strong>Proceed to payment</strong> — review the reservation summary before checking out.
+          </li>
+          <li style="margin-bottom: 0.5rem;">
+            <strong>Pay (hosted checkout)</strong> — complete the payment on the provider’s hosted page.
+          </li>
+          <li>
+            <strong>Receive invoice + e-ticket</strong> — download the invoice and e-ticket after confirmation.
+          </li>
+        </ol>
+
+        <div style="display: grid; gap: 0.75rem; margin-top: 1.5rem;">
+          <a href="login.html" class="btn btn-secondary" style="justify-content: flex-start;">
+            0. Login / Landing
+          </a>
+          <a href="seat-map.html" class="btn btn-primary" style="justify-content: flex-start;">
+            1. Seat Map →
+          </a>
+          <a href="checkout.html" class="btn btn-secondary" style="justify-content: flex-start;">
+            2. Checkout Review
+          </a>
+          <a href="payment.html" class="btn btn-secondary" style="justify-content: flex-start;">
+            3. Hosted Payment
+          </a>
+          <a href="confirmation.html" class="btn btn-secondary" style="justify-content: flex-start;">
+            4. Confirmation + Ticket
+          </a>
+        </div>
+
+        <p style="margin-top: 1.5rem; font-size: 0.875rem; color: var(--gray-500);">
+          These pages are intentionally lightweight and self-contained. Open any file directly in a browser to preview the flow.
+        </p>
+      </div>
+    </main>
+
+    <footer>LinkZ — Seat Reservation Platform</footer>
+  </div>
+</body>
+</html>

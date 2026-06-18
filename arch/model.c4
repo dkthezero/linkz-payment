@@ -1,0 +1,132 @@
+// LinkZ — base model: specification, top-level systems, the API shell,
+// and the landscape views. Reservation and Payment modules live in their
+// own files (reservation.c4, payment.c4) and attach here via `extend api`.
+
+specification {
+    element actor {
+        style { shape person }
+    }
+    element frontend {
+        style { shape browser }
+    }
+    element backend
+    element component
+    element step {
+        style { color slate }
+    }
+    element state {
+        style { color slate }
+    }
+    element database {
+        style { shape storage }
+    }
+    element identity-provider {
+        style { color muted }
+    }
+    element payment-gateway {
+        style { color muted }
+    }
+
+    relationship success {
+        color green
+    }
+    relationship compensate {
+        color red
+        line dashed
+    }
+
+    tag external
+    tag domain
+    tag application
+    tag infrastructure
+}
+
+model {
+    customer = actor 'Customer' {
+        description 'Authenticated user'
+    }
+
+    idp = identity-provider 'Clerk' {
+        #external
+        description 'Managed OIDC provider. Owns credentials, sessions and refresh-token rotation'
+    }
+
+    psp = payment-gateway 'Payment Provider' {
+        #external
+        description 'Mock provider emitting Stripe-shaped signed webhooks; designed to the Stripe contract for deterministic local failure simulation.'
+    }
+
+    webapp = frontend 'Web Client' {
+        technology 'SolidJS'
+        description 'Thin SPA: seat map, OIDC login (PKCE), checkout'
+    }
+
+    api = backend 'LinkZ' {
+        technology 'NestJS'
+        description 'Resource server. Validates JWTs; owns seat-hold concurrency and webhook idempotency.'
+
+        authGuard = component 'Auth Guard' {
+            description 'Validates the Bearer JWT against the provider JWKS.'
+        }
+
+        seats = component 'Seats Module' {
+            description 'Owns seat inventory + atomic hold / release (partial-unique guard) and TTL expiry.'
+        }
+
+        invoices = component 'Invoice Module' {
+            description 'Dummy issuer: records an invoice row, returns a PDF link. Idempotent per reservation.'
+        }
+
+        tickets = component 'Ticket Module' {
+            description 'Dummy issuer: records a ticket (serial + QR) per confirmed reservation. Idempotent.'
+        }
+
+        // reservations + payments are attached via `extend api` in
+        // reservation.c4 and payment.c4 respectively.
+    }
+
+    db = database 'Postgres' {
+        technology 'PostgreSQL + Drizzle'
+        description 'Seats, reservations, saga state, payments, webhook-event ledger, invoices, tickets.'
+    }
+
+    // --- Client + auth ---
+    customer -> webapp 'Reserves a seat'
+    customer -> psp 'Pays via hosted checkout'
+    webapp -> idp 'Login (OIDC + PKCE)'
+    webapp -> api 'API calls (Bearer access token)' {
+        technology 'HTTPS / JSON'
+    }
+    api.authGuard -> idp 'Validates JWT via JWKS'
+
+    // --- Persistence (seats / invoice / ticket) ---
+    api.seats -> db 'Atomic hold / release (partial-unique guard)' {
+        technology 'SQL'
+    }
+    api.invoices -> db 'Persist invoice'
+    api.tickets -> db 'Persist ticket'
+}
+
+views {
+    view index {
+        title 'Seat Reservation — System Landscape'
+        include *
+        autoLayout LeftRight
+    }
+
+    view apiComponents of api {
+        title 'LinkZ API — Components'
+        include *
+        include webapp, idp, psp, db
+        autoLayout LeftRight
+    }
+
+    dynamic view ux {
+        title 'User Journey — customer touchpoints'
+
+        customer -> webapp 'Pick a seat'
+        customer -> webapp 'Proceed to payment'
+        customer -> psp 'Pay (hosted checkout)'
+        customer <- webapp 'Receive invoice + e-ticket'
+    }
+}

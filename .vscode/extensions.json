@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "likec4.likec4-vscode",
+    "dineug.vuerd-vscode",
+    "nrwl.angular-console",
+    "ms-azuretools.vscode-docker",
+    "dbaeumer.vscode-eslint",
+    "ms-playwright.playwright"
+  ],
+  "unwantedRecommendations": []
+}

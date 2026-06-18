@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LinkZ — Payment</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .hosted-frame {
+      max-width: 420px;
+      margin: 0 auto;
+      border: 1px dashed var(--gray-300);
+      border-radius: var(--radius);
+      padding: 2rem;
+      text-align: center;
+      background: #fff;
+    }
+    .psp-logo {
+      width: 3rem;
+      height: 3rem;
+      background: var(--gray-100);
+      border-radius: 9999px;
+      margin: 0 auto 1rem;
+      display: grid;
+      place-items: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <a href="index.html" class="logo">
+        <span class="logo-mark">L</span>
+        <span>LinkZ</span>
+      </a>
+      <div class="user-chip">
+        <span>alex.chen@example.com</span>
+        <div class="avatar">AC</div>
+      </div>
+    </header>
+
+    <main style="max-width: 560px;">
+      <h1 class="page-title">Complete payment</h1>
+      <p class="page-subtitle">You are being redirected to our secure payment provider.</p>
+
+      <div class="card hosted-frame">
+        <div class="psp-logo">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="5" width="20" height="14" rx="2"/>
+            <line x1="2" y1="10" x2="22" y2="10"/>
+          </svg>
+        </div>
+        <h2 style="margin: 0 0 0.5rem; font-size: 1.125rem;">Mock Hosted Checkout</h2>
+        <p style="margin: 0 0 1.5rem; color: var(--gray-500); font-size: 0.875rem;">
+          In production this is the PSP iframe/redirect. Here, confirm to simulate a successful payment.
+        </p>
+
+        <div class="form-group" style="text-align: left;">
+          <label>Card number</label>
+          <input type="text" value="4242 4242 4242 4242" readonly />
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; text-align: left;">
+          <div class="form-group">
+            <label>Expiry</label>
+            <input type="text" value="12 / 30" readonly />
+          </div>
+          <div class="form-group">
+            <label>CVC</label>
+            <input type="text" value="123" readonly />
+          </div>
+        </div>
+
+        <a href="confirmation.html" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem;">
+          Authorize $244.00
+        </a>
+        <a href="seat-map.html" style="display: inline-block; margin-top: 1rem; font-size: 0.875rem; color: var(--gray-500);">
+          Cancel and return to seat map
+        </a>
+      </div>
+
+      <div class="card" style="margin-top: 1.5rem;">
+        <div class="summary-row" style="border-bottom: none;">
+          <span>Amount to charge</span>
+          <span style="font-weight: 700;">$244.00 USD</span>
+        </div>
+      </div>
+    </main>
+
+    <footer>LinkZ — Seat Reservation Platform</footer>
+  </div>
+</body>
+</html>

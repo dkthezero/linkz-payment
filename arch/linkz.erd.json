@@ -1,0 +1,1460 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dineug/erd-editor/main/json-schema/schema.json",
+  "version": "3.0.0",
+  "settings": {
+    "width": 2000,
+    "height": 2000,
+    "scrollTop": -35,
+    "scrollLeft": -16,
+    "zoomLevel": 1,
+    "show": 431,
+    "database": 16,
+    "databaseName": "linkz",
+    "canvasType": "ERD",
+    "language": 1,
+    "tableNameCase": 4,
+    "columnNameCase": 2,
+    "bracketType": 1,
+    "relationshipDataTypeSync": true,
+    "relationshipOptimization": false,
+    "columnOrder": [
+      1,
+      2,
+      4,
+      8,
+      16,
+      32,
+      64
+    ],
+    "maxWidthComment": -1,
+    "ignoreSaveSettings": 0
+  },
+  "doc": {
+    "tableIds": [
+      "16c5d83c-b3e1-4ce4-9f0e-d009ac001db9",
+      "b284a24f-f900-4ab7-9ff3-b1a0b33eaa9d",
+      "e3cfae7d-d3df-4a7e-b8d0-1c1fe2978ec2",
+      "b92cdc22-9bd8-411f-b725-c19887a3c1f0",
+      "a019ac2c-7ce9-46fa-9fe2-427ec33de665",
+      "72ef3adb-7d84-4ca1-9a05-7979b3f6466c",
+      "de26b7c4-0011-4424-9456-1ff7908486db"
+    ],
+    "relationshipIds": [
+      "e944de34-bd90-4ba8-8650-56504433e896",
+      "1455d156-6d72-4308-a4f3-b2105aad64d8",
+      "609a3d8c-a565-4746-88b4-706eaa31153e",
+      "d7acf028-94e1-4f9b-8f33-88f183495d28",
+      "1396a83b-2a20-4311-ab6f-cb8e05ed8b6e",
+      "ef4f7429-7293-4d72-b78c-899a5f475053"
+    ],
+    "indexIds": [
+      "6ad514d5-7ad3-44be-9757-d365f1956d55",
+      "b4313dc8-53fc-44ae-bdb8-dd90cc6dd8b6"
+    ],
+    "memoIds": []
+  },
+  "collections": {
+    "tableEntities": {
+      "16c5d83c-b3e1-4ce4-9f0e-d009ac001db9": {
+        "id": "16c5d83c-b3e1-4ce4-9f0e-d009ac001db9",
+        "name": "users",
+        "comment": "Identity mirror - no password column",
+        "columnIds": [
+          "d59fb769-ff09-4e68-ba82-056cf8825118",
+          "a646e2a2-9441-4a5e-9b0d-3b9676dc9b86",
+          "5da14b75-9e99-439c-9831-dc1e36a9c595",
+          "1f7ce5cc-6565-4863-8980-1335f46a1777"
+        ],
+        "seqColumnIds": [
+          "d59fb769-ff09-4e68-ba82-056cf8825118",
+          "a646e2a2-9441-4a5e-9b0d-3b9676dc9b86",
+          "5da14b75-9e99-439c-9831-dc1e36a9c595",
+          "1f7ce5cc-6565-4863-8980-1335f46a1777"
+        ],
+        "ui": {
+          "x": 60,
+          "y": 60,
+          "zIndex": 2,
+          "widthName": 60,
+          "widthComment": 211,
+          "color": ""
+        },
+        "meta": {
+          "updateAt": 1718700000000,
+          "createAt": 1718700000000
+        }
+      },
+      "b284a24f-f900-4ab7-9ff3-b1a0b33eaa9d": {
+        "id": "b284a24f-f900-4ab7-9ff3-b1a0b33eaa9d",
+        "name": "seats",
+        "comment": "The 3 bookable seats",
+        "columnIds": [
+          "7688851b-f0a1-4c06-b902-95d7969f0263",
+          "e5d640fc-62e5-4422-aba7-95ed2a5f2577",
+          "b1391afe-e58e-486b-af3e-1b33256d7370",
+          "6b30e4c4-9e6c-44d1-9d4d-f7f6e0d16034"
+        ],
+        "seqColumnIds": [
+          "7688851b-f0a1-4c06-b902-95d7969f0263",
+          "e5d640fc-62e5-4422-aba7-95ed2a5f2577",
+          "b1391afe-e58e-486b-af3e-1b33256d7370",
+          "6b30e4c4-9e6c-44d1-9d4d-f7f6e0d16034"
+        ],
+        "ui": {
+          "x": 560,
+          "y": 60,
+          "zIndex": 3,
+          "widthName": 60,
+          "widthComment": 123,
+          "color": ""
+        },
+        "meta": {
+          "updateAt": 1718700000000,
+          "createAt": 1718700000000
+        }
+      },
+      "e3cfae7d-d3df-4a7e-b8d0-1c1fe2978ec2": {
+        "id": "e3cfae7d-d3df-4a7e-b8d0-1c1fe2978ec2",
+        "name": "reservations",
+        "comment": "Hold / booking + saga state",
+        "columnIds": [
+          "b18596ff-6cd7-4551-a254-0c49edc91a20",
+          "4831a2cd-e01f-4c5e-8d8f-4505bc36754c",
+          "4224979f-754a-4d55-94ab-73b963fb93e2",
+          "06ccd1d5-e45d-4a71-8083-fce90ce70e68",
+          "df78777b-7518-4ad4-8490-03688ba40be0",
+          "3f3640f6-89fd-41e8-aa7e-12a45c01e1e7",
+          "1abb6321-e710-4dad-af83-481146445729",
+          "74a4ba84-6b08-4c26-8812-e0b16d04a407",
+          "c4a8c211-22c0-41cb-a6ea-3f67c321aa80"
+        ],
+        "seqColumnIds": [
+          "b18596ff-6cd7-4551-a254-0c49edc91a20",
+          "4831a2cd-e01f-4c5e-8d8f-4505bc36754c",
+          "4224979f-754a-4d55-94ab-73b963fb93e2",
+          "06ccd1d5-e45d-4a71-8083-fce90ce70e68",
+          "df78777b-7518-4ad4-8490-03688ba40be0",
+          "3f3640f6-89fd-41e8-aa7e-12a45c01e1e7",
+          "1abb6321-e710-4dad-af83-481146445729",
+          "74a4ba84-6b08-4c26-8812-e0b16d04a407",
+          "c4a8c211-22c0-41cb-a6ea-3f67c321aa80"
+        ],
+        "ui": {
+          "x": 560,
+          "y": 360,
+          "zIndex": 4,
+          "widthName": 72,
+          "widthComment": 157,
+          "color": ""
+        },
+        "meta": {
+          "updateAt": 1718700000000,
+          "createAt": 1718700000000
+        }
+      },
+      "b92cdc22-9bd8-411f-b725-c19887a3c1f0": {
+        "id": "b92cdc22-9bd8-411f-b725-c19887a3c1f0",
+        "name": "payments",
+        "comment": "Payment attempts",
+        "columnIds": [
+          "492a2160-4d7d-475f-8949-e09188b2608e",
+          "3b37e1ad-7429-4661-bede-eee1158fe871",
+          "21f2708c-c3be-436f-86d3-7d4da3607e65",
+          "c6e9c273-f027-411f-9fe1-12f124229815",
+          "e700deda-9381-474e-962f-8f9b761c9561",
+          "c5a47d62-db6f-4a59-95e3-79a30676b74e",
+          "af2af896-c842-41b9-bfbc-ed7941fa1fe5",
+          "41b0d2b9-1f02-4be9-91e3-0689ec057013",
+          "5126f337-c8fd-4056-a0b0-8f8a2f5bdacb",
+          "4e38919e-ad71-4666-9bd3-3408e1e7c8c2"
+        ],
+        "seqColumnIds": [
+          "492a2160-4d7d-475f-8949-e09188b2608e",
+          "3b37e1ad-7429-4661-bede-eee1158fe871",
+          "21f2708c-c3be-436f-86d3-7d4da3607e65",
+          "c6e9c273-f027-411f-9fe1-12f124229815",
+          "e700deda-9381-474e-962f-8f9b761c9561",
+          "c5a47d62-db6f-4a59-95e3-79a30676b74e",
+          "af2af896-c842-41b9-bfbc-ed7941fa1fe5",
+          "41b0d2b9-1f02-4be9-91e3-0689ec057013",
+          "5126f337-c8fd-4056-a0b0-8f8a2f5bdacb",
+          "4e38919e-ad71-4666-9bd3-3408e1e7c8c2"
+        ],
+        "ui": {
+          "x": 1229,
+          "y": 353,
+          "zIndex": 5,
+          "widthName": 60,
+          "widthComment": 105,
+          "color": ""
+        },
+        "meta": {
+          "updateAt": 1781770570652,
+          "createAt": 1718700000000
+        }
+      },
+      "a019ac2c-7ce9-46fa-9fe2-427ec33de665": {
+        "id": "a019ac2c-7ce9-46fa-9fe2-427ec33de665",
+        "name": "webhook_events",
+        "comment": "Idempotency ledger (exactly-once)",
+        "columnIds": [
+          "ad68b067-b669-46f4-bba6-faf8a5376fb6",
+          "99edfc0f-dcb4-4c15-8ad2-51a2488014ae",
+          "7edbca0a-692d-4e74-aaa4-f0d059d8beca",
+          "df1e5e41-33f7-4c9e-bf86-ba9fb65ef17f",
+          "17a45e60-e205-4630-853d-2e1dd80f5e4c",
+          "7efaace8-68f8-424d-b2e7-34a5449945ad"
+        ],
+        "seqColumnIds": [
+          "ad68b067-b669-46f4-bba6-faf8a5376fb6",
+          "99edfc0f-dcb4-4c15-8ad2-51a2488014ae",
+          "7edbca0a-692d-4e74-aaa4-f0d059d8beca",
+          "df1e5e41-33f7-4c9e-bf86-ba9fb65ef17f",
+          "17a45e60-e205-4630-853d-2e1dd80f5e4c",
+          "7efaace8-68f8-424d-b2e7-34a5449945ad"
+        ],
+        "ui": {
+          "x": 957,
+          "y": 35,
+          "zIndex": 6,
+          "widthName": 97,
+          "widthComment": 201,
+          "color": ""
+        },
+        "meta": {
+          "updateAt": 1781770766220,
+          "createAt": 1718700000000
+        }
+      },
+      "72ef3adb-7d84-4ca1-9a05-7979b3f6466c": {
+        "id": "72ef3adb-7d84-4ca1-9a05-7979b3f6466c",
+        "name": "invoices",
+        "comment": "Dummy issuer - idempotent per reservation",
+        "columnIds": [
+          "e8f5eb57-194f-40a2-a1a7-f4c98df7a25e",
+          "e29c56c8-78e8-49b4-b077-532d33f3184d",
+          "cd1283a7-3d6c-491a-8117-a67beb65274b",
+          "b8cf7ff0-c043-4d6d-af95-292896768530",
+          "e645dc19-6227-4019-ad24-61d2eec95c2d",
+          "ef3275fc-f8ee-485d-911c-d9360bbc122b",
+          "58a677c7-a896-4943-9f42-00cf1a49c2e6"
+        ],
+        "seqColumnIds": [
+          "e8f5eb57-194f-40a2-a1a7-f4c98df7a25e",
+          "e29c56c8-78e8-49b4-b077-532d33f3184d",
+          "cd1283a7-3d6c-491a-8117-a67beb65274b",
+          "b8cf7ff0-c043-4d6d-af95-292896768530",
+          "e645dc19-6227-4019-ad24-61d2eec95c2d",
+          "ef3275fc-f8ee-485d-911c-d9360bbc122b",
+          "58a677c7-a896-4943-9f42-00cf1a49c2e6"
+        ],
+        "ui": {
+          "x": 60,
+          "y": 440,
+          "zIndex": 8,
+          "widthName": 60,
+          "widthComment": 248,
+          "color": ""
+        },
+        "meta": {
+          "updateAt": 1718700000000,
+          "createAt": 1718700000000
+        }
+      },
+      "de26b7c4-0011-4424-9456-1ff7908486db": {
+        "id": "de26b7c4-0011-4424-9456-1ff7908486db",
+        "name": "tickets",
+        "comment": "Dummy issuer - idempotent per reservation",
+        "columnIds": [
+          "a92f261c-e2a3-4e43-802b-e2d67523d6db",
+          "ec4c6818-7625-4192-a62a-034b068fa4dc",
+          "cd2b07f1-5610-47db-a7e6-d794b5fd15bb",
+          "f9607e02-bfde-4a6b-8507-ac0c202807e7",
+          "7a08a41f-fd02-435b-a561-ddf72e2b3fd2",
+          "227d0cc9-5b34-44cc-955c-6ce6797daa08"
+        ],
+        "seqColumnIds": [
+          "a92f261c-e2a3-4e43-802b-e2d67523d6db",
+          "ec4c6818-7625-4192-a62a-034b068fa4dc",
+          "cd2b07f1-5610-47db-a7e6-d794b5fd15bb",
+          "f9607e02-bfde-4a6b-8507-ac0c202807e7",
+          "7a08a41f-fd02-435b-a561-ddf72e2b3fd2",
+          "227d0cc9-5b34-44cc-955c-6ce6797daa08"
+        ],
+        "ui": {
+          "x": 560,
+          "y": 800,
+          "zIndex": 9,
+          "widthName": 60,
+          "widthComment": 248,
+          "color": ""
+        },
+        "meta": {
+          "updateAt": 1718700000000,
+          "createAt": 1718700000000
+        }
+      }
+    },
+    "tableColumnEntities": {
+      "d59fb769-ff09-4e68-ba82-056cf8825118": {
+        "id": "d59fb769-ff09-4e68-ba82-056cf8825118",
+        "tableId": "16c5d83c-b3e1-4ce4-9f0e-d009ac001db9",
+        "name": "id",
+        "comment": "",
+        "dataType": "uuid",
+        "default": "",
+        "options": 10,
+        "ui": {
+          "keys": 1,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1718700000000,
+          "createAt": 1718700000000
+        }
+      },
+      "a646e2a2-9441-4a5e-9b0d-3b9676dc9b86": {
+        "id": "a646e2a2-9441-4a5e-9b0d-3b9676dc9b86",
+        "tableId": "16c5d83c-b3e1-4ce4-9f0e-d009ac001db9",
+        "name": "external_id",
+        "comment": "Clerk subject (sub)",
+        "dataType": "varchar",
+        "default": "",
+        "options": 12,
+        "ui": {
+          "keys": 0,
+          "widthName": 65,
+          "widthComment": 110,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1718700000000,
+          "createAt": 1718700000000
+        }
+      },
+      "5da14b75-9e99-439c-9831-dc1e36a9c595": {
+        "id": "5da14b75-9e99-439c-9831-dc1e36a9c595",
+        "tableId": "16c5d83c-b3e1-4ce4-9f0e-d009ac001db9",
+        "name": "email",
+        "comment": "",
+        "dataType": "varchar",
+        "default": "",
+        "options": 8,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1718700000000,
+          "createAt": 1718700000000
+        }
+      },
+      "1f7ce5cc-6565-4863-8980-1335f46a1777": {
+        "id": "1f7ce5cc-6565-4863-8980-1335f46a1777",
+        "tableId": "16c5d83c-b3e1-4ce4-9f0e-d009ac001db9",
+        "name": "created_at",
+        "comment": "",
+        "dataType": "timestamptz",
+        "default": "now()",
+        "options": 8,
+        "ui": {
+          "keys": 0,
+          "widthName": 63,
+          "widthComment": 60,
+          "widthDataType": 72,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1718700000000,
+          "createAt": 1718700000000
+        }
+      },
+      "7688851b-f0a1-4c06-b902-95d7969f0263": {
+        "id": "7688851b-f0a1-4c06-b902-95d7969f0263",
+        "tableId": "b284a24f-f900-4ab7-9ff3-b1a0b33eaa9d",
+        "name": "id",
+        "comment": "",
+        "dataType": "uuid",
+        "default": "",
+        "options": 10,
+        "ui": {
+          "keys": 1,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1718700000000,
+          "createAt": 1718700000000
+        }
+      },
+      "e5d640fc-62e5-4422-aba7-95ed2a5f2577": {
+        "id": "e5d640fc-62e5-4422-aba7-95ed2a5f2577",
+        "tableId": "b284a24f-f900-4ab7-9ff3-b1a0b33eaa9d",
+        "name": "label",
+        "comment": "",
+        "dataType": "varchar",
+        "default": "",
+        "options": 12,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1718700000000,
+          "createAt": 1718700000000
+        }
+      },
+      "b1391afe-e58e-486b-af3e-1b33256d7370": {
+        "id": "b1391afe-e58e-486b-af3e-1b33256d7370",
+        "tableId": "b284a24f-f900-4ab7-9ff3-b1a0b33eaa9d",
+        "name": "created_at",
+        "comment": "",
+        "dataType": "timestamptz",
+        "default": "now()",
+        "options": 8,
+        "ui": {
+          "keys": 0,
+          "widthName": 63,
+          "widthComment": 60,
+          "widthDataType": 72,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1718700000000,
+          "createAt": 1718700000000
+        }
+      },
+      "b18596ff-6cd7-4551-a254-0c49edc91a20": {
+        "id": "b18596ff-6cd7-4551-a254-0c49edc91a20",
+        "tableId": "e3cfae7d-d3df-4a7e-b8d0-1c1fe2978ec2",
+        "name": "id",
+        "comment": "",
+        "dataType": "uuid",
+        "default": "",
+        "options": 10,
+        "ui": {
+          "keys": 1,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1718700000000,
+          "createAt": 1718700000000
+        }
+      },
+      "4831a2cd-e01f-4c5e-8d8f-4505bc36754c": {
+        "id": "4831a2cd-e01f-4c5e-8d8f-4505bc36754c",
+        "tableId": "e3cfae7d-d3df-4a7e-b8d0-1c1fe2978ec2",
+        "name": "seat_id",
+        "comment": "partial-unique active guard",
+        "dataType": "uuid",
+        "default": "",
+        "options": 8,
+        "ui": {
+          "keys": 2,
+          "widthName": 60,
+          "widthComment": 155,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1718700000000,
+          "createAt": 1718700000000
+        }
+      },
+      "4224979f-754a-4d55-94ab-73b963fb93e2": {
+        "id": "4224979f-754a-4d55-94ab-73b963fb93e2",
+        "tableId": "e3cfae7d-d3df-4a7e-b8d0-1c1fe2978ec2",
+        "name": "user_id",
+        "comment": "",
+        "dataType": "uuid",
+        "default": "",
+        "options": 8,
+        "ui": {
+          "keys": 2,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1718700000000,
+          "createAt": 1718700000000
+        }
+      },
+      "06ccd1d5-e45d-4a71-8083-fce90ce70e68": {
+        "id": "06ccd1d5-e45d-4a71-8083-fce90ce70e68",
+        "tableId": "e3cfae7d-d3df-4a7e-b8d0-1c1fe2978ec2",
+        "name": "status",
+        "comment": "held|confirmed|released|expired",
+        "dataType": "varchar",
+        "default": "",
+        "options": 8,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 183,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1718700000000,
+          "createAt": 1718700000000
+        }
+      },
+      "df78777b-7518-4ad4-8490-03688ba40be0": {
+        "id": "df78777b-7518-4ad4-8490-03688ba40be0",
+        "tableId": "e3cfae7d-d3df-4a7e-b8d0-1c1fe2978ec2",
+        "name": "saga_step",
+        "comment": "orchestration state",
+        "dataType": "varchar",
+        "default": "",
+        "options": 8,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 109,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1718700000000,
+          "createAt": 1718700000000
+        }
+      },
+      "3f3640f6-89fd-41e8-aa7e-12a45c01e1e7": {
+        "id": "3f3640f6-89fd-41e8-aa7e-12a45c01e1e7",
+        "tableId": "e3cfae7d-d3df-4a7e-b8d0-1c1fe2978ec2",
+        "name": "hold_expires_at",
+        "comment": "TTL for held seats",
+        "dataType": "timestamptz",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 92,
+          "widthComment": 104,
+          "widthDataType": 72,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1718700000000,
+          "createAt": 1718700000000
+        }
+      },
+      "1abb6321-e710-4dad-af83-481146445729": {
+        "id": "1abb6321-e710-4dad-af83-481146445729",
+        "tableId": "e3cfae7d-d3df-4a7e-b8d0-1c1fe2978ec2",
+        "name": "version",
+        "comment": "",
+        "dataType": "integer",
+        "default": "0",
+        "options": 8,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1718700000000,
+          "createAt": 1718700000000
+        }
+      },
+      "74a4ba84-6b08-4c26-8812-e0b16d04a407": {
+        "id": "74a4ba84-6b08-4c26-8812-e0b16d04a407",
+        "tableId": "e3cfae7d-d3df-4a7e-b8d0-1c1fe2978ec2",
+        "name": "created_at",
+        "comment": "",
+        "dataType": "timestamptz",
+        "default": "now()",
+        "options": 8,
+        "ui": {
+          "keys": 0,
+          "widthName": 63,
+          "widthComment": 60,
+          "widthDataType": 72,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1718700000000,
+          "createAt": 1718700000000
+        }
+      },
+      "c4a8c211-22c0-41cb-a6ea-3f67c321aa80": {
+        "id": "c4a8c211-22c0-41cb-a6ea-3f67c321aa80",
+        "tableId": "e3cfae7d-d3df-4a7e-b8d0-1c1fe2978ec2",
+        "name": "updated_at",
+        "comment": "",
+        "dataType": "timestamptz",
+        "default": "now()",
+        "options": 8,
+        "ui": {
+          "keys": 0,
+          "widthName": 67,
+          "widthComment": 60,
+          "widthDataType": 72,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1718700000000,
+          "createAt": 1718700000000
+        }
+      },
+      "492a2160-4d7d-475f-8949-e09188b2608e": {
+        "id": "492a2160-4d7d-475f-8949-e09188b2608e",
+        "tableId": "b92cdc22-9bd8-411f-b725-c19887a3c1f0",
+        "name": "id",
+        "comment": "",
+        "dataType": "uuid",
+        "default": "",
+        "options": 10,
+        "ui": {
+          "keys": 1,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1718700000000,
+          "createAt": 1718700000000
+        }
+      },
+      "3b37e1ad-7429-4661-bede-eee1158fe871": {
+        "id": "3b37e1ad-7429-4661-bede-eee1158fe871",
+        "tableId": "b92cdc22-9bd8-411f-b725-c19887a3c1f0",
+        "name": "reservation_id",
+        "comment": "",
+        "dataType": "uuid",
+        "default": "",
+        "options": 8,
+        "ui": {
+          "keys": 2,
+          "widthName": 83,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1718700000000,
+          "createAt": 1718700000000
+        }
+      },
+      "21f2708c-c3be-436f-86d3-7d4da3607e65": {
+        "id": "21f2708c-c3be-436f-86d3-7d4da3607e65",
+        "tableId": "b92cdc22-9bd8-411f-b725-c19887a3c1f0",
+        "name": "provider",
+        "comment": "",
+        "dataType": "varchar",
+        "default": "",
+        "options": 8,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1718700000000,
+          "createAt": 1718700000000
+        }
+      },
+      "c6e9c273-f027-411f-9fe1-12f124229815": {
+        "id": "c6e9c273-f027-411f-9fe1-12f124229815",
+        "tableId": "b92cdc22-9bd8-411f-b725-c19887a3c1f0",
+        "name": "provider_ref",
+        "comment": "PSP intent id",
+        "dataType": "varchar",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 71,
+          "widthComment": 74,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1718700000000,
+          "createAt": 1718700000000
+        }
+      },
+      "e700deda-9381-474e-962f-8f9b761c9561": {
+        "id": "e700deda-9381-474e-962f-8f9b761c9561",
+        "tableId": "b92cdc22-9bd8-411f-b725-c19887a3c1f0",
+        "name": "idempotency_key",
+        "comment": "prevents double charge",
+        "dataType": "varchar",
+        "default": "",
+        "options": 12,
+        "ui": {
+          "keys": 0,
+          "widthName": 101,
+          "widthComment": 136,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1718700000000,
+          "createAt": 1718700000000
+        }
+      },
+      "c5a47d62-db6f-4a59-95e3-79a30676b74e": {
+        "id": "c5a47d62-db6f-4a59-95e3-79a30676b74e",
+        "tableId": "b92cdc22-9bd8-411f-b725-c19887a3c1f0",
+        "name": "amount",
+        "comment": "",
+        "dataType": "integer",
+        "default": "",
+        "options": 8,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1718700000000,
+          "createAt": 1718700000000
+        }
+      },
+      "af2af896-c842-41b9-bfbc-ed7941fa1fe5": {
+        "id": "af2af896-c842-41b9-bfbc-ed7941fa1fe5",
+        "tableId": "b92cdc22-9bd8-411f-b725-c19887a3c1f0",
+        "name": "currency",
+        "comment": "",
+        "dataType": "varchar",
+        "default": "",
+        "options": 8,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1718700000000,
+          "createAt": 1718700000000
+        }
+      },
+      "41b0d2b9-1f02-4be9-91e3-0689ec057013": {
+        "id": "41b0d2b9-1f02-4be9-91e3-0689ec057013",
+        "tableId": "b92cdc22-9bd8-411f-b725-c19887a3c1f0",
+        "name": "status",
+        "comment": "pending|succeeded|failed|refunded",
+        "dataType": "varchar",
+        "default": "",
+        "options": 8,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 201,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1718700000000,
+          "createAt": 1718700000000
+        }
+      },
+      "5126f337-c8fd-4056-a0b0-8f8a2f5bdacb": {
+        "id": "5126f337-c8fd-4056-a0b0-8f8a2f5bdacb",
+        "tableId": "b92cdc22-9bd8-411f-b725-c19887a3c1f0",
+        "name": "created_at",
+        "comment": "",
+        "dataType": "timestamptz",
+        "default": "now()",
+        "options": 8,
+        "ui": {
+          "keys": 0,
+          "widthName": 63,
+          "widthComment": 60,
+          "widthDataType": 72,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1718700000000,
+          "createAt": 1718700000000
+        }
+      },
+      "4e38919e-ad71-4666-9bd3-3408e1e7c8c2": {
+        "id": "4e38919e-ad71-4666-9bd3-3408e1e7c8c2",
+        "tableId": "b92cdc22-9bd8-411f-b725-c19887a3c1f0",
+        "name": "updated_at",
+        "comment": "",
+        "dataType": "timestamptz",
+        "default": "now()",
+        "options": 8,
+        "ui": {
+          "keys": 0,
+          "widthName": 67,
+          "widthComment": 60,
+          "widthDataType": 72,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1718700000000,
+          "createAt": 1718700000000
+        }
+      },
+      "ad68b067-b669-46f4-bba6-faf8a5376fb6": {
+        "id": "ad68b067-b669-46f4-bba6-faf8a5376fb6",
+        "tableId": "a019ac2c-7ce9-46fa-9fe2-427ec33de665",
+        "name": "event_id",
+        "comment": "provider event id",
+        "dataType": "varchar",
+        "default": "",
+        "options": 10,
+        "ui": {
+          "keys": 1,
+          "widthName": 60,
+          "widthComment": 97,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1718700000000,
+          "createAt": 1718700000000
+        }
+      },
+      "99edfc0f-dcb4-4c15-8ad2-51a2488014ae": {
+        "id": "99edfc0f-dcb4-4c15-8ad2-51a2488014ae",
+        "tableId": "a019ac2c-7ce9-46fa-9fe2-427ec33de665",
+        "name": "type",
+        "comment": "",
+        "dataType": "varchar",
+        "default": "",
+        "options": 8,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1718700000000,
+          "createAt": 1718700000000
+        }
+      },
+      "7edbca0a-692d-4e74-aaa4-f0d059d8beca": {
+        "id": "7edbca0a-692d-4e74-aaa4-f0d059d8beca",
+        "tableId": "a019ac2c-7ce9-46fa-9fe2-427ec33de665",
+        "name": "payload",
+        "comment": "",
+        "dataType": "jsonb",
+        "default": "",
+        "options": 8,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1718700000000,
+          "createAt": 1718700000000
+        }
+      },
+      "df1e5e41-33f7-4c9e-bf86-ba9fb65ef17f": {
+        "id": "df1e5e41-33f7-4c9e-bf86-ba9fb65ef17f",
+        "tableId": "a019ac2c-7ce9-46fa-9fe2-427ec33de665",
+        "name": "status",
+        "comment": "received|processed|failed",
+        "dataType": "varchar",
+        "default": "",
+        "options": 8,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 147,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1718700000000,
+          "createAt": 1718700000000
+        }
+      },
+      "17a45e60-e205-4630-853d-2e1dd80f5e4c": {
+        "id": "17a45e60-e205-4630-853d-2e1dd80f5e4c",
+        "tableId": "a019ac2c-7ce9-46fa-9fe2-427ec33de665",
+        "name": "received_at",
+        "comment": "",
+        "dataType": "timestamptz",
+        "default": "now()",
+        "options": 8,
+        "ui": {
+          "keys": 0,
+          "widthName": 68,
+          "widthComment": 60,
+          "widthDataType": 72,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1718700000000,
+          "createAt": 1718700000000
+        }
+      },
+      "7efaace8-68f8-424d-b2e7-34a5449945ad": {
+        "id": "7efaace8-68f8-424d-b2e7-34a5449945ad",
+        "tableId": "a019ac2c-7ce9-46fa-9fe2-427ec33de665",
+        "name": "processed_at",
+        "comment": "",
+        "dataType": "timestamptz",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 79,
+          "widthComment": 60,
+          "widthDataType": 72,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1718700000000,
+          "createAt": 1718700000000
+        }
+      },
+      "e8f5eb57-194f-40a2-a1a7-f4c98df7a25e": {
+        "id": "e8f5eb57-194f-40a2-a1a7-f4c98df7a25e",
+        "tableId": "72ef3adb-7d84-4ca1-9a05-7979b3f6466c",
+        "name": "id",
+        "comment": "",
+        "dataType": "uuid",
+        "default": "",
+        "options": 10,
+        "ui": {
+          "keys": 1,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1718700000000,
+          "createAt": 1718700000000
+        }
+      },
+      "e29c56c8-78e8-49b4-b077-532d33f3184d": {
+        "id": "e29c56c8-78e8-49b4-b077-532d33f3184d",
+        "tableId": "72ef3adb-7d84-4ca1-9a05-7979b3f6466c",
+        "name": "reservation_id",
+        "comment": "",
+        "dataType": "uuid",
+        "default": "",
+        "options": 12,
+        "ui": {
+          "keys": 2,
+          "widthName": 83,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1718700000000,
+          "createAt": 1718700000000
+        }
+      },
+      "cd1283a7-3d6c-491a-8117-a67beb65274b": {
+        "id": "cd1283a7-3d6c-491a-8117-a67beb65274b",
+        "tableId": "72ef3adb-7d84-4ca1-9a05-7979b3f6466c",
+        "name": "number",
+        "comment": "",
+        "dataType": "varchar",
+        "default": "",
+        "options": 12,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1718700000000,
+          "createAt": 1718700000000
+        }
+      },
+      "b8cf7ff0-c043-4d6d-af95-292896768530": {
+        "id": "b8cf7ff0-c043-4d6d-af95-292896768530",
+        "tableId": "72ef3adb-7d84-4ca1-9a05-7979b3f6466c",
+        "name": "amount",
+        "comment": "",
+        "dataType": "integer",
+        "default": "",
+        "options": 8,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1718700000000,
+          "createAt": 1718700000000
+        }
+      },
+      "e645dc19-6227-4019-ad24-61d2eec95c2d": {
+        "id": "e645dc19-6227-4019-ad24-61d2eec95c2d",
+        "tableId": "72ef3adb-7d84-4ca1-9a05-7979b3f6466c",
+        "name": "currency",
+        "comment": "",
+        "dataType": "varchar",
+        "default": "",
+        "options": 8,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1718700000000,
+          "createAt": 1718700000000
+        }
+      },
+      "ef3275fc-f8ee-485d-911c-d9360bbc122b": {
+        "id": "ef3275fc-f8ee-485d-911c-d9360bbc122b",
+        "tableId": "72ef3adb-7d84-4ca1-9a05-7979b3f6466c",
+        "name": "pdf_url",
+        "comment": "",
+        "dataType": "varchar",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1718700000000,
+          "createAt": 1718700000000
+        }
+      },
+      "58a677c7-a896-4943-9f42-00cf1a49c2e6": {
+        "id": "58a677c7-a896-4943-9f42-00cf1a49c2e6",
+        "tableId": "72ef3adb-7d84-4ca1-9a05-7979b3f6466c",
+        "name": "issued_at",
+        "comment": "",
+        "dataType": "timestamptz",
+        "default": "now()",
+        "options": 8,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 72,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1718700000000,
+          "createAt": 1718700000000
+        }
+      },
+      "a92f261c-e2a3-4e43-802b-e2d67523d6db": {
+        "id": "a92f261c-e2a3-4e43-802b-e2d67523d6db",
+        "tableId": "de26b7c4-0011-4424-9456-1ff7908486db",
+        "name": "id",
+        "comment": "",
+        "dataType": "uuid",
+        "default": "",
+        "options": 10,
+        "ui": {
+          "keys": 1,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1718700000000,
+          "createAt": 1718700000000
+        }
+      },
+      "ec4c6818-7625-4192-a62a-034b068fa4dc": {
+        "id": "ec4c6818-7625-4192-a62a-034b068fa4dc",
+        "tableId": "de26b7c4-0011-4424-9456-1ff7908486db",
+        "name": "reservation_id",
+        "comment": "",
+        "dataType": "uuid",
+        "default": "",
+        "options": 12,
+        "ui": {
+          "keys": 2,
+          "widthName": 83,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1718700000000,
+          "createAt": 1718700000000
+        }
+      },
+      "cd2b07f1-5610-47db-a7e6-d794b5fd15bb": {
+        "id": "cd2b07f1-5610-47db-a7e6-d794b5fd15bb",
+        "tableId": "de26b7c4-0011-4424-9456-1ff7908486db",
+        "name": "seat_id",
+        "comment": "",
+        "dataType": "uuid",
+        "default": "",
+        "options": 8,
+        "ui": {
+          "keys": 2,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1718700000000,
+          "createAt": 1718700000000
+        }
+      },
+      "f9607e02-bfde-4a6b-8507-ac0c202807e7": {
+        "id": "f9607e02-bfde-4a6b-8507-ac0c202807e7",
+        "tableId": "de26b7c4-0011-4424-9456-1ff7908486db",
+        "name": "serial",
+        "comment": "",
+        "dataType": "varchar",
+        "default": "",
+        "options": 12,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1718700000000,
+          "createAt": 1718700000000
+        }
+      },
+      "7a08a41f-fd02-435b-a561-ddf72e2b3fd2": {
+        "id": "7a08a41f-fd02-435b-a561-ddf72e2b3fd2",
+        "tableId": "de26b7c4-0011-4424-9456-1ff7908486db",
+        "name": "qr_code",
+        "comment": "",
+        "dataType": "varchar",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1718700000000,
+          "createAt": 1718700000000
+        }
+      },
+      "227d0cc9-5b34-44cc-955c-6ce6797daa08": {
+        "id": "227d0cc9-5b34-44cc-955c-6ce6797daa08",
+        "tableId": "de26b7c4-0011-4424-9456-1ff7908486db",
+        "name": "issued_at",
+        "comment": "",
+        "dataType": "timestamptz",
+        "default": "now()",
+        "options": 8,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 72,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1718700000000,
+          "createAt": 1718700000000
+        }
+      },
+      "6b30e4c4-9e6c-44d1-9d4d-f7f6e0d16034": {
+        "id": "6b30e4c4-9e6c-44d1-9d4d-f7f6e0d16034",
+        "tableId": "b284a24f-f900-4ab7-9ff3-b1a0b33eaa9d",
+        "name": "price",
+        "comment": "Seat price in cents",
+        "dataType": "integer",
+        "default": "5000",
+        "options": 8,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 120,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1718700000000,
+          "createAt": 1718700000000
+        }
+      }
+    },
+    "relationshipEntities": {
+      "e944de34-bd90-4ba8-8650-56504433e896": {
+        "id": "e944de34-bd90-4ba8-8650-56504433e896",
+        "identification": false,
+        "relationshipType": 16,
+        "startRelationshipType": 2,
+        "start": {
+          "tableId": "b284a24f-f900-4ab7-9ff3-b1a0b33eaa9d",
+          "columnIds": [
+            "7688851b-f0a1-4c06-b902-95d7969f0263"
+          ],
+          "x": 845,
+          "y": 188,
+          "direction": 8
+        },
+        "end": {
+          "tableId": "e3cfae7d-d3df-4a7e-b8d0-1c1fe2978ec2",
+          "columnIds": [
+            "4831a2cd-e01f-4c5e-8d8f-4505bc36754c"
+          ],
+          "x": 826,
+          "y": 360,
+          "direction": 4
+        },
+        "meta": {
+          "updateAt": 1718700000000,
+          "createAt": 1718700000000
+        }
+      },
+      "1455d156-6d72-4308-a4f3-b2105aad64d8": {
+        "id": "1455d156-6d72-4308-a4f3-b2105aad64d8",
+        "identification": false,
+        "relationshipType": 16,
+        "startRelationshipType": 2,
+        "start": {
+          "tableId": "16c5d83c-b3e1-4ce4-9f0e-d009ac001db9",
+          "columnIds": [
+            "d59fb769-ff09-4e68-ba82-056cf8825118"
+          ],
+          "x": 492,
+          "y": 136,
+          "direction": 2
+        },
+        "end": {
+          "tableId": "e3cfae7d-d3df-4a7e-b8d0-1c1fe2978ec2",
+          "columnIds": [
+            "4224979f-754a-4d55-94ab-73b963fb93e2"
+          ],
+          "x": 560,
+          "y": 428,
+          "direction": 1
+        },
+        "meta": {
+          "updateAt": 1718700000000,
+          "createAt": 1718700000000
+        }
+      },
+      "609a3d8c-a565-4746-88b4-706eaa31153e": {
+        "id": "609a3d8c-a565-4746-88b4-706eaa31153e",
+        "identification": false,
+        "relationshipType": 16,
+        "startRelationshipType": 2,
+        "start": {
+          "tableId": "e3cfae7d-d3df-4a7e-b8d0-1c1fe2978ec2",
+          "columnIds": [
+            "b18596ff-6cd7-4551-a254-0c49edc91a20"
+          ],
+          "x": 1092,
+          "y": 496,
+          "direction": 2
+        },
+        "end": {
+          "tableId": "b92cdc22-9bd8-411f-b725-c19887a3c1f0",
+          "columnIds": [
+            "3b37e1ad-7429-4661-bede-eee1158fe871"
+          ],
+          "x": 1229,
+          "y": 501,
+          "direction": 1
+        },
+        "meta": {
+          "updateAt": 1718700000000,
+          "createAt": 1718700000000
+        }
+      },
+      "d7acf028-94e1-4f9b-8f33-88f183495d28": {
+        "id": "d7acf028-94e1-4f9b-8f33-88f183495d28",
+        "identification": false,
+        "relationshipType": 8,
+        "startRelationshipType": 2,
+        "start": {
+          "tableId": "e3cfae7d-d3df-4a7e-b8d0-1c1fe2978ec2",
+          "columnIds": [
+            "b18596ff-6cd7-4551-a254-0c49edc91a20"
+          ],
+          "x": 560,
+          "y": 564,
+          "direction": 1
+        },
+        "end": {
+          "tableId": "72ef3adb-7d84-4ca1-9a05-7979b3f6466c",
+          "columnIds": [
+            "e29c56c8-78e8-49b4-b077-532d33f3184d"
+          ],
+          "x": 460,
+          "y": 552,
+          "direction": 2
+        },
+        "meta": {
+          "updateAt": 1718700000000,
+          "createAt": 1718700000000
+        }
+      },
+      "1396a83b-2a20-4311-ab6f-cb8e05ed8b6e": {
+        "id": "1396a83b-2a20-4311-ab6f-cb8e05ed8b6e",
+        "identification": false,
+        "relationshipType": 8,
+        "startRelationshipType": 2,
+        "start": {
+          "tableId": "e3cfae7d-d3df-4a7e-b8d0-1c1fe2978ec2",
+          "columnIds": [
+            "b18596ff-6cd7-4551-a254-0c49edc91a20"
+          ],
+          "x": 826,
+          "y": 632,
+          "direction": 8
+        },
+        "end": {
+          "tableId": "de26b7c4-0011-4424-9456-1ff7908486db",
+          "columnIds": [
+            "ec4c6818-7625-4192-a62a-034b068fa4dc"
+          ],
+          "x": 860,
+          "y": 800,
+          "direction": 4
+        },
+        "meta": {
+          "updateAt": 1718700000000,
+          "createAt": 1718700000000
+        }
+      },
+      "ef4f7429-7293-4d72-b78c-899a5f475053": {
+        "id": "ef4f7429-7293-4d72-b78c-899a5f475053",
+        "identification": false,
+        "relationshipType": 16,
+        "startRelationshipType": 2,
+        "start": {
+          "tableId": "b284a24f-f900-4ab7-9ff3-b1a0b33eaa9d",
+          "columnIds": [
+            "7688851b-f0a1-4c06-b902-95d7969f0263"
+          ],
+          "x": 655,
+          "y": 188,
+          "direction": 8
+        },
+        "end": {
+          "tableId": "de26b7c4-0011-4424-9456-1ff7908486db",
+          "columnIds": [
+            "cd2b07f1-5610-47db-a7e6-d794b5fd15bb"
+          ],
+          "x": 660,
+          "y": 800,
+          "direction": 4
+        },
+        "meta": {
+          "updateAt": 1718700000000,
+          "createAt": 1718700000000
+        }
+      }
+    },
+    "indexEntities": {
+      "6ad514d5-7ad3-44be-9757-d365f1956d55": {
+        "id": "6ad514d5-7ad3-44be-9757-d365f1956d55",
+        "name": "uq_active_seat_partial",
+        "tableId": "e3cfae7d-d3df-4a7e-b8d0-1c1fe2978ec2",
+        "indexColumnIds": [
+          "c11a9bd6-0717-4fed-a2e3-0b58a6059270"
+        ],
+        "seqIndexColumnIds": [
+          "c11a9bd6-0717-4fed-a2e3-0b58a6059270"
+        ],
+        "unique": true,
+        "meta": {
+          "updateAt": 1718700000000,
+          "createAt": 1718700000000
+        }
+      },
+      "b4313dc8-53fc-44ae-bdb8-dd90cc6dd8b6": {
+        "id": "b4313dc8-53fc-44ae-bdb8-dd90cc6dd8b6",
+        "name": "ix_reservation_sweep",
+        "tableId": "e3cfae7d-d3df-4a7e-b8d0-1c1fe2978ec2",
+        "indexColumnIds": [
+          "a894250a-320d-4916-bc2d-7a3c5122e604",
+          "aaa100a1-66ce-473e-80bf-c4f1dff6be80"
+        ],
+        "seqIndexColumnIds": [
+          "a894250a-320d-4916-bc2d-7a3c5122e604",
+          "aaa100a1-66ce-473e-80bf-c4f1dff6be80"
+        ],
+        "unique": false,
+        "meta": {
+          "updateAt": 1718700000000,
+          "createAt": 1718700000000
+        }
+      }
+    },
+    "indexColumnEntities": {
+      "c11a9bd6-0717-4fed-a2e3-0b58a6059270": {
+        "id": "c11a9bd6-0717-4fed-a2e3-0b58a6059270",
+        "indexId": "6ad514d5-7ad3-44be-9757-d365f1956d55",
+        "columnId": "4831a2cd-e01f-4c5e-8d8f-4505bc36754c",
+        "orderType": 1,
+        "meta": {
+          "updateAt": 1718700000000,
+          "createAt": 1718700000000
+        }
+      },
+      "a894250a-320d-4916-bc2d-7a3c5122e604": {
+        "id": "a894250a-320d-4916-bc2d-7a3c5122e604",
+        "indexId": "b4313dc8-53fc-44ae-bdb8-dd90cc6dd8b6",
+        "columnId": "06ccd1d5-e45d-4a71-8083-fce90ce70e68",
+        "orderType": 1,
+        "meta": {
+          "updateAt": 1718700000000,
+          "createAt": 1718700000000
+        }
+      },
+      "aaa100a1-66ce-473e-80bf-c4f1dff6be80": {
+        "id": "aaa100a1-66ce-473e-80bf-c4f1dff6be80",
+        "indexId": "b4313dc8-53fc-44ae-bdb8-dd90cc6dd8b6",
+        "columnId": "3f3640f6-89fd-41e8-aa7e-12a45c01e1e7",
+        "orderType": 1,
+        "meta": {
+          "updateAt": 1718700000000,
+          "createAt": 1718700000000
+        }
+      }
+    },
+    "memoEntities": {}
+  }
+}
