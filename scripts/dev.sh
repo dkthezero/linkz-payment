@@ -80,11 +80,14 @@ STRIPE_LOG="$(mktemp -t linkz-stripe.XXXXXX.log)"
 readonly STRIPE_LOG
 
 PIDS=()
+_cleaned=0
 cleanup() {
+  [ "$_cleaned" -eq 1 ] && return
+  _cleaned=1
   echo
   echo "› shutting down…"
   for pid in "${PIDS[@]:-}"; do kill "$pid" 2>/dev/null || true; done
-  wait 2>/dev/null || true
+  wait "${PIDS[@]}" 2>/dev/null || true
   rm -f "$STRIPE_LOG"
 }
 trap cleanup EXIT INT TERM
@@ -132,14 +135,14 @@ else
 fi
 
 # stream the (already-running) listener logs to the console, prefixed
-tail -n +1 -f "$STRIPE_LOG" | sed 's/^/[stripe] /' &
+{ tail -n +1 -f "$STRIPE_LOG" | sed 's/^/[stripe] /'; } &
 PIDS+=("$!")
 
 # --- concurrent long-runners -----------------------------------------------
 # run <label> <cmd...>  — background, stdout/stderr line-prefixed with the label
 run() {
   local label="$1"; shift
-  "$@" > >(sed "s/^/[$label] /") 2>&1 &
+  { "$@" 2>&1 | sed "s/^/[$label] /"; } &
   PIDS+=("$!")
 }
 
@@ -147,4 +150,4 @@ echo "› starting API · web  (Ctrl-C to stop)"
 run api pnpm nx run api:serve
 run web pnpm nx run web:serve
 
-wait
+wait "${PIDS[@]}" 2>/dev/null || true
